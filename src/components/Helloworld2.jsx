@@ -11,8 +11,8 @@ export default function Helloworld() {
           "img": "My first blog post"
         },
         {
-          "id": 2,
-          "title": "My second blog post"
+          "name": 2,
+          "img": "My second blog post"
         }
       ]
 
