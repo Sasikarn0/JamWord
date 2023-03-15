@@ -1,62 +1,50 @@
-export default function Helloworld2() {
-  return (
-    <div
-      style={{ display: "flex", backgroundColor: "yellow", justifyContent: "space-around", height: 820}}
-      
-    >
-      <div style={{ width: "100%", height: "100%", background:"white", display: "flex", justifyContent: "center"}}>
-        <div style={{ position: "absolute", top: 20, left: 20 }}>
-          <img src="images/logo.png" alt="Logo" style={{ width: 50, height: 50 }} />
-        </div>
-        <div style={{display:"flex", alignItems:"center", width:400, height:300,flexDirection:"column",marginTop:250}}>
-          <div style={{ marginTop:20,marginBottom:40}}>
-            <p style={{fontSize:30,fontWeight:"bold",color:"#227C70"}}>Sign in to JamWord</p>
-          </div>
-          <div style={{display:"flex",flexDirection:"column",justifyContent: "center",alignItems: "center"}}>
-            <input style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Student ID"/>
-            <input style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Password"/>
-          </div>
-          <div>
-            <button style={{width:140, height: 40,border:"none",marginBottom:10,borderRadius:20,marginTop:40,fontSize:15,color:"#FEFCF3",background:"#439A97"}} type="submit">
-              SIGN IN
-            </button>
-          </div>
-        </div>
+import React , { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-      </div> 
-      <div
-        style={{
-          width: "60%",
-          height: "100%",
-          background:"#439A97",
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign:"center"
-        }}
-      >
-        <div >
-          <p style={{fontSize:30,fontWeight:"bold",paddingBottom:30,color:"#FEFCF3"}}>Hello, Friend!</p>
-        </div>
-        <div style={{fontSize:25,fontWeight:"normal",width:"50%",paddingBottom:30,color:"#FEFCF3"}}>
-          Enter your personal details and start journey with us
-        </div>
-        <div>
-          <button style={{width:140, height: 40,border:"none",marginBottom:10,borderRadius:20,marginTop:20,fontSize:15,color:"#FEFCF3",background:"#439A97",border:"1px solid #FEFCF3"}} type="submit">
-            SIGN UP
-          </button>
-        </div>
-      </div>
-			
-    </div>
-  );
+export default function Helloworld() {
+    const [products, setProduct] = useState([]);
+
+    subject = [
+        {
+          "name": "Introduction to Computational Thinking",
+          "img": "My first blog post"
+        },
+        {
+          "id": 2,
+          "title": "My second blog post"
+        }
+      ]
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get("https://dummyjson.com/products")
+            setProduct(res.data.products);
+            console.log(res);
+        };
+        fetchData()
+    },[]);
+
+    return(
+        <div>Hi</div>
+        // <div style={{}}>
+        //     <div style={{display:"flex", width:2000, flexWrap:"wrap",justifyContent:"center",alignItems:"center"}}>
+        //     {products ? 
+        //         products.map((item,index) =>{
+        //             console.log(item)
+        //             return (
+        //                 <div key={index} style={{borderWidth:1, width:200, height: 100, margin:20, padding:10, backgroundColor:"yellow",borderRadius:10}}>
+        //                     <div>
+        //                         <img src={item.images[0]} alt={item.brand} style={{width:50,height:50}} />
+        //                     </div>
+        //                     <div>
+        //                         <p>{item.brand}</p>
+        //                     </div>
+        //                 </div>
+        //             )
+        //         })
+        //     : null}
+        //     </div>
+        // </div>
+    )
 }
-
-{/* <div
-        style={{background:"yellow",width:720,height:820}}>
-            <div
-                style={{background:"green",width:300,height:100}}>
-            </div>
-
-</div> */}

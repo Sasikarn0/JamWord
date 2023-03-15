@@ -1,6 +1,33 @@
-import React from 'react'
+import React , {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Helloworld() {
+  const [username , setUsername] = useState("")
+  const [password , setPassword] = useState("")
+  const navigate = useNavigate()
+  
+  useEffect(()=> {
+    console.log("1")
+  })
+
+  useEffect(()=> {
+    console.log("2")
+  })
+
+  useEffect(()=> {
+    console.log("3")
+  })
+
+  const checkLogin = () => {
+    if(username === "Sasikarn"){
+      if (password === "lalil"){
+        navigate("/2")
+      }
+    }else{
+      console("Wrong username or password")
+    }
+  }
+  
   return (
     <div
       style={{ display: "flex", backgroundColor: "yellow", justifyContent: "space-around", height: 820,}}
@@ -15,11 +42,11 @@ export default function Helloworld() {
 			<p style={{fontSize:30,fontWeight:"bold",color:"#227C70"}}>Sign in to JamWord</p>
 		</div>
 		<div style={{display:"flex",flexDirection:"column",justifyContent: "center",alignItems: "center"}}>
-			<input style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Student ID"/>
-			<input style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Password"/>
+			<input value={username} onChange={(e)=> setUsername(e.target.value)} style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Student ID"/>
+			<input value={password} onChange={(e)=> setPassword(e.target.value)} style={{width: "130%", height: 20,border:"none",marginBottom:10,borderRadius:10,padding:10,background:"#F1F6F5"}} type="text" placeholder="Password"/>
 		</div>
 		<div>
-			<button style={{width:140, height: 40,border:"none",marginBottom:10,borderRadius:20,marginTop:40,fontSize:15,color:"#FEFCF3",background:"#439A97"}} type="submit">
+			<button onClick={() => checkLogin()} style={{width:140, height: 40,border:"none",marginBottom:10,borderRadius:20,marginTop:40,fontSize:15,color:"#FEFCF3",background:"#439A97"}} type="submit">
 				SIGN IN
 			</button>
 		</div>
@@ -54,17 +81,3 @@ export default function Helloworld() {
     </div>
   );
 }
-
-// function signInSuccess() {
-//   // Declare a new state variable, which we'll call "count"
-//   const [success, signInSuccess] = useState(True);
-
-//   return (
-//     <div>
-//       <p>You clicked {count} times</p>
-//       <button onClick={() => setCount(count + 1)}>
-//         Click me
-//       </button>
-//     </div>
-//   );
-// }
