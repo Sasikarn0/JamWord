@@ -35,7 +35,7 @@ export default function Helloworld() {
       <div style={{ width: "100%", height: "100%", background:"white", display: "flex", justifyContent: "center" }}>
         <div style={{ position: "absolute", top: 10, left: 10,display:"flex",alignItems:"center",justifyContent:"center"}}>
             <img src="images/logo-white.jpg" alt="Logo"style={{ width: 70, height: 70}} />
-            <p style={{paddingLeft:10,fontSize:17,fontWeight:"bold",color:"blue"}}>JamWord</p>
+            <p style={{paddingLeft:10,fontSize:17,fontWeight:"bold",color:"#344dee"}}>JamWord</p>
         </div>
 	<div style={{display:"flex", alignItems:"center", width:400, height:300,flexDirection:"column",marginTop:250}}>
 		<div style={{ marginTop:20,marginBottom:40}}>
@@ -81,3 +81,5 @@ export default function Helloworld() {
     </div>
   );
 }
+
+// code : #344dee,#82c7fe,91a4f1,eee
