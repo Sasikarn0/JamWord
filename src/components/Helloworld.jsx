@@ -81,5 +81,3 @@ export default function Helloworld() {
     </div>
   );
 }
-
-// code : #344dee,#82c7fe,91a4f1,eee
